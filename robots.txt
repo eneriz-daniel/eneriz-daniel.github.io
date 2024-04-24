@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://eneriz-daniel.github.io/sitemap.xml
+Sitemap: https://eneriz-daniel.com/sitemap.xml
