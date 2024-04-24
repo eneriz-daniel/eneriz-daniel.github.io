@@ -1,12 +1,10 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - eneriz-daniel
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - eneriz-daniel/PCG-Segmentation-Model-Optimization
+  - eneriz-daniel/fpgaconvnet-PYNQ
+  - eneriz-daniel/MIBCI-QCNNs
+  - eneriz-daniel/sensorialfusionQNNs
+  - eneriz-daniel/MeatNet
+  - eneriz-daniel/instin

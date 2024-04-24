@@ -1,113 +1,320 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
+@ARTICLE{10506694,
+  author={Enériz, Daniel and Rodriguez-Almeida, Antonio J. and Fabelo, Himar and Ortega, Samuel and Balea-Fernandez, Francisco J. and Callico, Gustavo M. and Medrano, Nicolás and Calvo, Belén},
+  journal={IEEE Transactions on Instrumentation and Measurement}, 
+  title={Low-Cost FPGA Implementation of Deep Learning-based Heart Sound Segmentation for Real-Time CVDs Screening}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Field programmable gate arrays;Integrated circuit modeling;Real-time systems;Phonocardiography;Hardware;Analytical models;Adaptation models;Convolutional neural networks;computer-aid diagnostic;cardiovascular diseases detection;deep learning;edge AI;embedded systems;FPGA;heart sound segmentation},
+  doi={10.1109/TIM.2024.3392271},
+  abstract={The development of real-time, reliable, low-cost automatic Phonocardiogram (PCG) analysis systems is critical for early detection of Cardiovascular Diseases (CVDs), especially in countries with limited access to primary health care programs. Once the raw PCG acquired by the stethoscope has been preprocessed, the first key task is its segmentation into the fundamental heart sounds. For this purpose, an optimized hardware implementation of the segmentation algorithm is essential to attain a computer-aided diagnostic system based on PCGs. This paper presents the optimization of a U-Net-based segmentation algorithm for its implementation in a low-end Field-Programmable Gate Array (FPGA) using low-resolution fixed-point data types. The optimization strategies seek to reduce the system latency while maintaining a constrained consumption of FPGA resources, aiming for a real-time response from the stethoscope data acquisition to the CVDs detection. Experimental results prove a 64% decrease in latency compared to a baseline version, a 3.9% reduction of Block Random Access Memory, which is the limiting resource of the design, and a 70% reduction in energy consumption. To the best of our knowledge, this is the first work to exhaustively study different optimization strategies for implementing a large 1D U-Net-based model, achieving real-time fully characterized performance.},
 
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
-}
-
-@book{einstein1956investigations,
+  abbr={IEEE},
   bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
+  html = {https://ieeexplore.ieee.org/document/10506694},
+  selected={true},
+  code = {https://github.com/eneriz-daniel/PCG-Segmentation-Model-Optimization},
+  pdf = {TIM2024.pdf}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
+
+
+@Article{app14020589,
+AUTHOR = {Antolín-Cañada, Diego and Perez-Cebolla, Francisco Jose and Eneriz, Daniel and Calvo, Belén and Medrano, Nicolás},
+TITLE = {Remote Low-Cost Differential Isolated Probe for Voltage Measurements},
+JOURNAL = {Applied Sciences},
+VOLUME = {14},
+YEAR = {2024},
+NUMBER = {2},
+ARTICLE-NUMBER = {589},
+URL = {https://www.mdpi.com/2076-3417/14/2/589},
+ISSN = {2076-3417},
+ABSTRACT = {The growing development of communication technologies has given rise to the Internet of Things, which has led to the emergence of new cities, smart grids, and smart buildings, and the development of energy generation using renewable sources, as well as the emergence of new electrical loads such as the electric car. These advances give rise to the need for new media devices with remote communication, and require a greater control and monitoring of the state of the electrical grid in order to verify its correct state, as well as the detection of faults or alterations that are occurring in it due to these new generation systems or new loads. These remote, unsupervised measurement devices require galvanic isolation to protect the measurement and communication system, so that even if there is a break in the isolation, the integrity of the measurement and communication system is maintained. In addition, as it is a device prepared for multipoint measurement, the cost of the probe must be contained. This article details the design, implementation, and validation of a low-cost remote isolated differential voltage probe. This probe is intended for monitoring at network supply points, as well as for the verification of the European standard EN 50160 as a means of detecting disturbances in network behaviour. Its characteristics as a differential and isolated probe provide it with the possibility of floating voltage averaging, guaranteeing the integrity of the electronics of the low-voltage probe, i.e., the digitalisation and communication system. The measurements collected are sent via an MQTT protocol, which makes the remote probe a device compatible with the Internet of Energy. For the validation of the probe, a full functional test is performed, including FFT spectral analysis to verify the compliance of the mains voltage with the aforementioned European standard EN 50160.},
+DOI = {10.3390/app14020589},
+
+bibtex_show={true},
+html = {https://www.mdpi.com/2076-3417/14/2/589},
+pdf = {applsci-14-00589.pdf},
+}
+
+@INPROCEEDINGS{DCIS2023,
+  author={Enériz, Daniel and Medrano, Nicolás and Calvo, Belén and Antolín, Diego},
+  booktitle={2023 38th Conference on Design of Circuits and Integrated Systems (DCIS)}, 
+  title={Low-power EEGNet-based Brain-Computer Interface implemented on an Arduino Nano 33 Sense}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-5},
+  abstract={The use of Convolutional Neural Networks (CNNs) to process Electroencephalograph (EEG) signals has been introduced in recent years with great success in the field of Brain-Computer Interfaces (BCI). Nevertheless, in order to advance towards a CNN-based BCI prototype, they must be efficiently mapped into low-power and low-cost hardware, enabling a real-time, portable and Internet-independent brain-computer communication. This work presents the implementation of an EEGNet-based model into an ARM Cortex M4F microcontroller, available on the Arduino Nano 33 Sense. Starting from models trained over the Physionet Motor Movement/Imagery dataset, 8-bit integer post-training quantization has been considered to reduce computing complexity, with a mean downgrade of 2.64±0.77% in accuracy. Moreover, their computational impact and memory footprint have been characterized by measuring the associated operations and Random-Access Memory (RAM) usage. Finally, a selected model has been implemented on the ARM Cortex M4F, with a latency of 137 ms and an energy per inference of 2.55 mJ, a 40% lower than other EEGNet implementation on the same microcontroller.},
+  keywords={},
+  doi={10.1109/DCIS58620.2023.10335978},
+  ISSN={2640-5563},
+  month={Nov},
+  
+  abbr={IEEE},
   bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
-}
-
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein, A. and Podolsky, B. and Rosen, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
+  html = {https://ieeexplore.ieee.org/document/10335978},
   selected={true}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
-}
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
+@INPROCEEDINGS{DCIS2023-Nicolas,
+  author={Medrano, Nicolas and Antolin, Diego and Eneriz, Daniel and Calvo, Belen},
+  booktitle={2023 38th Conference on Design of Circuits and Integrated Systems (DCIS)}, 
+  title={High Resolution Current Measurement Using TMR Sensors}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-5},
+  abstract={Contactless current sensing allows the measurement of energy consumption in electric and electronic circuits without the need of alter the structure of the system under study. For this purpose, contactless probes are based on the measurement of the magnetic field generated by the monitored current. Typically, for both AC and DC current sensing Hall-effect magnetic sensors are used. With a suitable configuration, portable low-cost Hall-based current probes can measure currents below 10 mA, suitable for energy monitoring in Internet of Things (IoT) devices, home appliances consumption, etc. However, for better response linearity and resolutions below 1 mA it is necessary to seek for alternative solutions. This paper presents an analysis of the use of magnetoresistance devices based on quantum tunnel effect (TMR, tunnel magnetoresistance) to achieve these features. The main characteristics of a commercial low-cost TMR-based device with a suitable resolution are measured, and compared to equivalent current sensing devices based on Hall-effect.},
+  keywords={},
+  doi={10.1109/DCIS58620.2023.10336007},
+  ISSN={2640-5563},
+  month={Nov},
 
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
-
-@Article{einstein1905photoelectriceffect,
+  abbr={IEEE},
   bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
+  html = {https://ieeexplore.ieee.org/document/10336007},
 }
 
-@book{przibram1967letters,
+
+@INPROCEEDINGS{DCIS2022,
+  author={Enériz, Daniel and Medrano, Nicolás and Calvo, Belén and Hernández–Ruiz, Ana Caren and Antolín, Diego}, 
+  booktitle={2022 37th Conference on Design of Circuits and Integrated Circuits (DCIS)},  
+  title={Real-Time EEG Acquisition System for FPGA-based BCI},
+  year={2022},
+  volume={},
+  number={},
+  pages={01-05},
+  doi={10.1109/DCIS55711.2022.9970028},
+  abstract={Multichannel electroencephalograph (EEG) signals data acquisition is non-invasive and easy to implement, thus being the preferred brain-related information carriers for Brain Computer Interfaces (BCIs). Since BCIs must be capable of processing information in real-time, their implementation in edge devices is currently being boosted, particularly on Field-Programmable Gate Arrays (FPGA). In this work, a real-time EEG acquisition system based on the XADC of the Xilinx Zynq FPGA is presented, meeting the requirements of a well-known BCI processing algorithm, the EEGNet. Performed tests show minimal error in the acquisition, whose effects in the EEGNet accuracy are negligible.},
+
+  abbr={IEEE},
   bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
+  html = {https://ieeexplore.ieee.org/document/9970028},
+  selected={true}
 }
+
+@INPROCEEDINGS{DCIS2022-Nicolas,
+  author={Medrano, Nicolas and Antolin, Diego and Calvo, Belen and Enériz, Daniel},
+  booktitle={2022 37th Conference on Design of Circuits and Integrated Circuits (DCIS)}, 
+  title={10 mA Precision Contactless Current Sensing Using Low-Cost Hall-Effect Devices}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-5},
+  doi={10.1109/DCIS55711.2022.9970200},
+  abstract={The measurement of the magnetic field generated by a current flowing in a wire allows the contactless estimation of its value. This non-invasive measurement technique can be applied to occasional monitoring of energy consumption in electrical and electronic systems. In this paper, based on low-cost linear Hall-effect sensors, a basic circuit for AC and DC current sensing is presented targeting current ranges of home and automotive applications. With an accuracy of 10 mA, the probe prototype consists of a differential configuration with programmable gain, so that the output voltage can be dynamically set to cover the input range of an analog-to-digital converter.},
+  
+  abbr={IEEE},
+  bibtex_show={true},
+  html = {https://ieeexplore.ieee.org/document/9970200},
+}
+
+@INPROCEEDINGS{CinC2022,
+  author={Enériz, Daniel and Rodríguez-Almeida, Antonio J. and Fabelo, Himar and Ortega, Samuel and Balea-Fernandez, Francisco and Medrano, Nicolás J and Calvo, Belén and Callicó, Gustavo M},
+  booktitle={2022 Computing in Cardiology (CinC)}, 
+  title={Exploring a Segmentation-Classification Deep Learning-based Heart Murmurs Detector}, 
+  year={2022},
+  volume={498},
+  number={},
+  pages={1-4},
+  doi={10.22489/CinC.2022.266},
+  abstract={This work presents the advances of the UZ-ULPGC team in the Heart Murmur Detection from Phonocardiogram Recordings: The George B. Moody PhysioNet Challenge 2022. As the 2016 challenge proved the success of the combination of a segmentation algorithm and a classifier, a deep learning-based murmur detector is developed using the sequence segmentation-classification. A U-Net-based segmentation model is used to extract each cardiac cycle from the PCG with state-of-the-art accuracy. Three deep models are tested for the classification: a model based on four independent 1D-convolutional feature extractors; its variation enabling combination of the features; and an autoencoder. Furthermore, to enable unique patient diagnostic, a decision model gathering all the patient-related cardiac cycles information is added. All classifiers show limited performance, probably due to the heavy class imbalance of the data at the cardiac cycle level and the minimal preprocessing chosen in the architecture. Note that our models have not been tested in the hidden challenge data and therefore we are not ranked. Hence, a 10-fold cross-validation over the training set is used to evaluate their performance, with the best model getting a weighted accuracy score in the presence task of 0.58±0.10 and 10 735±2208 in Challenge cost score for the outcome.},
+  bibtex_show={true},
+  preprint = {https://cinc.org/2022/Program/accepted/266_Preprint.pdf},
+  html = {https://ieeexplore.ieee.org/abstract/document/10081854}
+}
+
+@INPROCEEDINGS{JJII3A2022,
+  title={Hacia la implementación on the edge de un segmentador de PCG basado en la U-Net},
+  author={En{\'e}riz, Daniel and Rodriguez-Almeida, Antonio J. and Fabelo, Himar and Medrano, Nicolas and Calvo, Belen and Callico, Gustavo M.},
+  booktitle={Jornada de J{\'o}venes Investigadores del I3A},
+  volume={9},
+  year={2022},
+  pdf={JJII3A2022_abstract.pdf},
+  poster={JJII3A2022_poster.pdf},
+  website={https://eneriz-daniel.com/JJI-I3A-2022/},
+  abbr={Español},
+  abstract={Un sistema de asistencia al diagnóstico de enfermedades cardiovasculares requiere de precisión y respuesta en tiempo real, algo que se puede alcanzar gracias a la implementación de modelos deep learning on the edge. En este trabajo se presenta la reducción de un modelo para la segmentación de fonocardiogramas y su efecto en la implementación sobre FPGAs low-spec.}
+}
+
+@inproceedings{TAEE2022-Diego,
+  author          = {Antolín, Diego and Enériz, Daniel and Pérez-Cebolla, F. J. and Ponce, J. and Pérez, Jorge and Calvo, Belen},
+  booktitle       = {Libro de actas TAEE 2022 XV Congreso de Tecnología, Aprendizaje y Enseñanza de la Electrónica},
+  title           = {Herramienta Didáctica para el Autoaprendizaje del Cálculo de Disipadores},
+  year            = {2022},
+  abstract        = {La sociedad actual y el estudiantado universitario consume la información de manera más digital. En este contexto, se plantea la necesidad de proporcionar al estudiante una herramienta digital, que le resulte atractiva y didáctica en el proceso de aprendizaje de los fundamentos de la electrónica de potencia. Concretamente, la herramienta se centra en la metodología a seguir para el cálculo del disipador térmico. La aplicación interactiva desarrollada, denominada “Cálculo de Disipadores (CdD)”, permite determinar la resistencia térmica del disipador según el modo de operación del componente y sus características intrínsecas, de forma que es posible identificar las dependencias de las resistencias térmicas unión-cápsula, cápsula-disipador y la temperatura ambiente, contribuyendo al aprendizaje autónomo. Utiliza software libre en línea con el Objetivo de Desarrollo Sostenible 4 (ODS 4), proporcionando a la aplicación el formato de un Recurso Educativo en Abierto (REA).},
+  abbr            = {Español},
+  pdf             = {https://dialnet.unirioja.es/descarga/articulo/8647960.pdf},
+  html            = {https://dialnet.unirioja.es/servlet/articulo?codigo=8647960},
+  website         = {https://dantolin-zgz.github.io/CalculadorDisipadores/},
+  code            = {https://github.com/dantolin-zgz/CalculadorDisipadores}
+}
+@inproceedings{TAEE2022-Jorge,
+  author          = {Pérez-Bailón, Jorge and Calvo, Belen and Enériz, Daniel and Medrano, Nicolás and Antolín, Diego},
+  booktitle       = {Libro de actas TAEE 2022 XV Congreso de Tecnología, Aprendizaje y Enseñanza de la Electrónica},
+  title           = {Píldoras Audiovisuales como Apoyo a las sesiones de Laboratorio},
+  year            = {2022},
+  abstract        = {En este trabajo se presenta la elaboración de nuevo material docente para las sesiones de laboratorio de la asignatura de Técnicas Físicas II, del tercer curso del Grado en Física de la Universidad de Zaragoza, en formato de píldoras audiovisuales. El objetivo es dotar al alumno de un material con explicaciones y demostraciones sobre las herramientas y técnicas que van a necesitar a lo largo de las diferentes sesiones prácticas. Para ello se han elaborado diferentes vídeos explicando la instrumentación que van a utilizar y las bases de programación y automatización de medidas haciendo uso de software libre.},
+  abbr            = {Español},
+  pdf             = {https://dialnet.unirioja.es/descarga/articulo/8647720.pdf},
+  html            = {https://dialnet.unirioja.es/servlet/articulo?codigo=8647720},
+}
+
+@inproceedings{TAEE2022-Nicolás,
+  author          = {Medrano, Nicolás and Calvo, Belen and Enériz, Daniel and Antolín, Diego and Pérez-Bailón, Jorge},
+  booktitle       = {Libro de actas TAEE 2022 XV Congreso de Tecnología, Aprendizaje y Enseñanza de la Electrónica},
+  title           = {Sistemas de Medida Remotos en el Máster en Física y Tecnologías Físicas},
+  year            = {2022},
+  abstract        = {Este trabajo presenta una actividad de aprendizaje basado en proyectos cuyo objetivo es proporcionar al alumnado de la asignatura Instrumentación Inteligente del máster universitario en Física y Tecnologías Físicas las herramientas necesarias para implementar un laboratorio básico con automatización de medidas y posibilidad de acceso remoto. Así, esta propuesta incorpora el concepto remoto como propia finalidad: el alumnado que curse este módulo adquirirá las competencias básicas para poner en marcha un laboratorio con control automatizado de medidas y acceso remoto mediante protocolo TCP/IP, todo ello empleando herramientas open source.},
+  abbr            = {Español},
+  pdf             = {https://dialnet.unirioja.es/descarga/articulo/8649080.pdf},
+  html            = {https://dialnet.unirioja.es/servlet/articulo?codigo=8649080},
+}
+
+@INPROCEEDINGS{JJIQYF2021,
+  title={Brain-Computer Interface basada en el procesado de EEG on the edge para reconocimiento de tareas de imaginación motora},
+  author={En{\'e}riz, Daniel and Hern{\'a}ndez-Ruiz, Ana Caren and Medrano, Nicolas and Calvo, Belen},
+  booktitle={Jornada de J{\'o}venes Investigadores de Química y Física de Aragón},
+  volume={9},
+  year={2021},
+  code={https://github.com/eneriz-daniel/MIBCI-QCNNs},
+  pdf={JJIQYF2021.pdf},
+  slides={JJIQYF2021-slides.pdf},
+  talk={https://youtu.be/Mpz7t0I5h08?t=3448},
+
+  abbr={Español},
+  award={Best Oral},
+}
+
+@INPROCEEDINGS{IEEESensors2021,
+  author={Hernandez-Ruiz, Ana Caren and Enériz, Daniel and Medrano, Nicolas and Calvo, Belen},
+  booktitle={2021 IEEE Sensors},
+  title={Motor-Imagery EEGNet-Based Processing on a Low-Spec SoC Hardware},
+  year={2021},
+  volume={},
+  number={},
+  pages={1-4},
+  doi={10.1109/SENSORS47087.2021.9639747},
+
+  code={https://github.com/eneriz-daniel/MIBCI-QCNNs},
+  abbr={IEEE},
+  bibtex_show={true},
+  html = {https://ieeexplore.ieee.org/document/9639747},
+  selected={true},
+
+  abstract={One of the most popular Brain-Computer Interface (BCI) paradigms is the classification of motor imagery tasks using Electroencephalograph signals (EEG). Recent works suggest the use of Convolutional Neural Networks (CNNs) to both extract the EEG features and classify them in a single compact solution. Since BCIs are meant to be run in embedded hardware, compact models and data reduction strategies are necessary. An EEGNet-based model is presented in this work, which achieves results similar to those of the state-of-the-art of 83.15 %, 75.74 % and 65.75 % in classification accuracy on 2-, 3-, and 4-class MI tasks in global validation on the Physionet Motor Movement/Imagery dataset. Taking advantage of its lower model complexity, a preliminary FPGA processor design using fixed-point datatypes is introduced, to evaluate resources consumption and latency on a low-spec system on chip approach.}
+}
+
+@INPROCEEDINGS{JJII3A2021,
+  title={Procesado on the edge de se{\~n}ales EEG para reconocimiento de tareas de imaginaci{\'o}n motora},
+  author={En{\'e}riz, Daniel and Hern{\'a}ndez-Ruiz, Ana Caren and Medrano, Nicolas and Calvo, Belen},
+  booktitle={Jornada de J{\'o}venes Investigadores del I3A},
+  volume={9},
+  year={2021},
+  code={https://github.com/eneriz-daniel/MIBCI-QCNNs},
+  pdf={JJII3A2021.pdf},
+  poster={JJII3A2021-poster.pdf},
+  abbr={Español}
+}
+
+@Article{bios11100366,
+AUTHOR = {Enériz, Daniel and Medrano, Nicolas and Calvo, Belen},
+TITLE = {An FPGA-Based Machine Learning Tool for In-Situ Food Quality Tracking Using Sensor Fusion},
+JOURNAL = {Biosensors},
+VOLUME = {11},
+YEAR = {2021},
+NUMBER = {10},
+ARTICLE-NUMBER = {366},
+ISSN = {2079-6374},
+ABSTRACT = {The continuous development of more accurate and selective bio- and chemo-sensors has led to a growing use of sensor arrays in different fields, such as health monitoring, cell culture analysis, bio-signals processing, or food quality tracking. The analysis and information extraction from the amount of data provided by these sensor arrays is possible based on Machine Learning techniques applied to sensor fusion. However, most of these computing solutions are implemented on costly and bulky computers, limiting its use in in-situ scenarios outside complex laboratory facilities. This work presents the application of machine learning techniques in food quality assessment using a single Field Programmable Gate Array (FPGA) chip. The characteristics of low-cost, low power consumption as well as low-size allow the application of the proposed solution even in space constrained places, as in food manufacturing chains. As an example, the proposed system is tested on an e-nose developed for beef classification and microbial population prediction.},
+DOI = {10.3390/bios11100366},
+
+abbr={MDPI},
+bibtex_show={true},
+PDF = {biosensors-11-00366-v2.pdf},
+url = {https://www.mdpi.com/2079-6374/11/10/366},
+html = {https://www.mdpi.com/2079-6374/11/10/366/htm},
+selected={true},
+code = {https://github.com/eneriz-daniel/MeatNet}
+}
+
+@article{9514539,
+  author={Enériz, Daniel and Medrano, Nicolás and Calvo, Belén},
+  journal={IEEE Access}, 
+  title={A Wireless Instrumentation Control System Based on Low-Cost Single Board Computer Gateways}, 
+  year={2021},
+  volume={9},
+  number={},
+  pages={115632-115642},
+  abstract={Nowadays, most of the automatized measurement processes are carried out by VISA (Virtual Instrument Software Architecture) compatible instruments, that execute the instructions provided by a host computer connected through wired standard buses, as USB (Universal Serial Bus), GPIB (General-Purpose Instrumentation Bus), PXI (PCI eXtensions for Instrumentation) or Ethernet. To overcome the intrinsic limitations associated to these wired systems, this work presents an instrumentation control system based on the IEEE 802.11 wireless communications standard. Intended for instruments having a USB control port, this port is connected to a gateway based on a compact Raspberry Single Board Computer (SBC) and thus the instrument can be connected to the host computer via Wireless Fidelity (WiFi), easily allowing the deployment of an ad-hoc instruments communication network in the working area or its connection to a previously deployed general purpose WiFi network. Developed under Python, the operation commands, wireless link protocol, and USB connection allow two modes of operation to provide system flexibility: a live mode, where commands are sent individually from the host computer to the selected instrument; and a standalone mode, where a full measurement process can be entirely downloaded in the gateway to be autonomously executed on the instrumentation. The system performance in both operation modes, distance of operation, time latencies, and operating lifetime in battery operation have been characterized.},
+  keywords={},
+  doi={10.1109/ACCESS.2021.3104903},
+  ISSN={2169-3536},
+  month={},
+
+  abbr={IEEE},
+  html={https://ieeexplore.ieee.org/document/9514539},
+  pdf={ACCESS3104903.pdf},
+  bibtex_show={true},
+  selected={true},
+  code = {https://github.com/eneriz-daniel/instin}
+}
+
+@INPROCEEDINGS{JJII3A2020,
+  title={Implementaci{\'o}n de redes neuronales en FPGAs usando tipos de datos de punto fijo},
+  author={En{\'e}riz, Daniel  and Medrano, Nicol{\'a}s and Calvo, Bel{\'e}n},
+  booktitle={IX Jornada de J{\'o}venes Investigadores del I3A},
+  volume={8},
+  year={2020},
+  code={https://github.com/eneriz-daniel/sensorialfusionQNNs},
+  pdf={JJII3A2020.pdf},
+  poster={JJII3A2020-poster.pdf},
+  abbr={Español}
+}
+
+@INPROCEEDINGS{9129142,
+  author={Enériz, D. and Medrano, N. and Calvo, B. and Pérez-Bailón, J.},
+  booktitle={2020 IEEE International Instrumentation and Measurement Technology Conference (I2MTC)}, 
+  title={A Wireless Instrumentation Control System Based on Low-Cost Single Board Computers}, 
+  year={2020},
+  volume={},
+  number={},
+  pages={1-5},
+  abstract={Automated instrumentation allows monitoring complex processes synchronizing the acquisition of physical magnitudes measured from different instruments. For this, standard communication protocols are used to send and receive both messages and data between the different components of the system. Most instrument communication protocols are based on wired standard buses, so that their application is restricted to relatively small environments, and the instruments mobility is limited. This work presents a Raspberry-based gateway which enables the wireless communication of an instrument, providing an IEEE 802.11 wireless link to Virtual Instrument Software Architecture (VISA) compatible instruments having a USB control bus. The compatibility of this proposal with the USB standard, available in a vast majority of the commercial instrumentation, allows its application in most of automated measurement systems. In addition, the use of Wi-Fi (Wireless Fidelity) as wireless protocol allows take advantage of a Wi-Fi infrastructure already deployed in the environment, or the use of a specific wireless network using a dedicated router if required. The proposed communications system has been successfully tested in a real scenario, measuring the signal propagation in a coaxial cable.},
+  keywords={},
+  doi={10.1109/I2MTC43012.2020.9129142},
+  ISSN={2642-2077},
+  month={May},
+  
+  bibtex_show={true},
+  abbr = {IEEE},
+  html = {https://ieeexplore.ieee.org/document/9129142},
+  code = {https://github.com/eneriz-daniel/instin}
+
+  }
+
+@INPROCEEDINGS{9180681,
+  author={Enériz, D. and Medrano, N. and Calvo, B.},
+  booktitle={2020 IEEE International Symposium on Circuits and Systems (ISCAS)}, 
+  title={Live Demonstration: A Low-Cost Wireless Instrumentation Control System}, 
+  year={2020},
+  volume={},
+  number={},
+  pages={1-1},
+  abstract={This demo presents a wireless automated measurement system based on a low-cost compact gateway developed in Python on a Raspberry Pi Zero W. It has been designed for VISA compliant instruments having an USB control port. The gateway is plugged to the USB connector of the instrument, converting the strings sent from the measurement host via Wi-Fi into SCPI commands forwarded to the instrument through its USB port and vice-versa. As in the gateway, the application running on the measurement host is developed on Python. The system is tested measuring the velocity of propagation of a pulse traveling along a coaxial wire at different distant probing points.},
+  keywords={},
+  doi={10.1109/ISCAS45731.2020.9180681},
+  ISSN={2158-1525},
+  month={Oct},
+  
+  abbr = {IEEE},
+  bibtex_show={true},
+  html={https://ieeexplore.ieee.org/document/9180681},
+  code={https://github.com/eneriz-daniel/instin}
+  }

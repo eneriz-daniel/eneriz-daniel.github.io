@@ -2,24 +2,26 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: 🎓PhD student. 🏛️<a href="https://unizar.es">University of Zaragoza</a>. 🎯Edge computing of neural networks.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Área de Electrónica</p>
+    <p>Facultad de Ciencias</p>
+    <p>Universidad de Zaragoza</p>
+    <p>Pedro Cerbuna, 12</p>
+    <p>50009, Zaragoza, Spain</p>
 
-news: true # includes a list of news items
+news: false # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I’m a PhD student at the [University of Zaragoza](https://unizar.es), under the Electronic Engineering program. My research interests are machine learning, deep learning and their implementation in low-spec devices. At the moment, I’m working in the edge computing of neural networks using FPGAs.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+During my Masters Degree in physics and physical technologies at the University of Zaragoza, I worked in an early-stage FPGA implementation of a simple neural network, under the direction of [Prof. Medrano](https://scholar.google.com/citations?user=ws4HMNsAAAAJ&hl=en&authuser=2) and Prof. Calvo.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I’m a proud member of the maker community. In my spare time, I love to work with arduinos and raspberries, and print some STLs with my 3D printers.
