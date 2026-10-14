@@ -1,0 +1,53 @@
+---
+import type { Publication } from '../data/publications';
+import type { Lang } from '../i18n/content';
+
+interface Props { pub: Publication; lang: Lang; showAuthors?: boolean; codeLabel: string }
+const { pub, lang, showAuthors = false, codeLabel } = Astro.props;
+const href = pub.doi ? `https://doi.org/${pub.doi}` : pub.url;
+const authors = pub.authors.replace(/D\. Enériz/, '<b>D. Enériz</b>');
+---
+<li class="pub">
+  <span class="year mono">{pub.year}</span>
+  <div>
+    <div class="title">{href ? <a href={href}>{pub.title}</a> : pub.title}</div>
+    {showAuthors && <div class="authors" set:html={authors} />}
+    {showAuthors && <div class="venue">{pub.venue}</div>}
+    <div class="meta mono">
+      <span class="tag">{pub.tag}</span>
+      {pub.code && <a href={pub.code}>{codeLabel} ↗</a>}
+      {pub.note && <span class="note">★ {pub.note[lang]}</span>}
+    </div>
+  </div>
+</li>
+
+<style>
+  .pub {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 0 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .pub:last-child { border-bottom: 0; }
+  .year { color: var(--faint); padding-top: 0.2rem; }
+  .title { line-height: 1.4; }
+  .title a { text-decoration: none; }
+  .title a:hover { text-decoration: underline; }
+  .authors { font-size: 0.88rem; color: var(--muted); margin-top: 0.25rem; }
+  .venue { font-size: 0.88rem; color: var(--muted); font-style: italic; }
+  .authors :global(b) { color: var(--fg); font-weight: 500; }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.9rem;
+    margin-top: 0.35rem;
+    font-size: 0.74rem;
+    color: var(--muted);
+  }
+  .tag { color: var(--accent); }
+  .meta a { color: var(--muted); }
+  .meta a:hover { color: var(--accent); }
+  .note { color: var(--fg); }
+</style>

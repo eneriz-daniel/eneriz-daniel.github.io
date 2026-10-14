@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import { t, paths, site, type Lang } from '../i18n/content';
+
+interface Props {
+  lang: Lang;
+  page: 'home' | 'research';
+  title?: string;
+}
+const { lang, page, title } = Astro.props;
+const s = t[lang];
+const other: Lang = lang === 'en' ? 'es' : 'en';
+const pageTitle = title ? `${title} — ${site.name}` : s.meta.title;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={s.meta.description} />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="canonical" href={new URL(paths[lang][page], Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(paths.en[page], Astro.site)} />
+    <link rel="alternate" hreflang="es" href={new URL(paths.es[page], Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={s.meta.description} />
+    <script is:inline>
+      // Dark by default; only switch to light if the visitor chose it.
+      if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light';
+    </script>
+  </head>
+  <body>
+    <header class="wrap top">
+      <a class="brand mono" href={paths[lang].home}>enériz<span class="cursor">_</span></a>
+      <nav class="mono">
+        <a href={paths[lang].home} aria-current={page === 'home' ? 'page' : undefined}>{s.nav.home}</a>
+        <a href={paths[lang].research} aria-current={page === 'research' ? 'page' : undefined}>{s.nav.research}</a>
+        <a href={paths[other][page]} hreflang={other} lang={other} title={s.nav.lang}>{other.toUpperCase()}</a>
+        <button id="theme" type="button" aria-label={s.nav.theme} title={s.nav.theme}>
+          <svg class="sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+          <svg class="moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </button>
+      </nav>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="wrap mono muted">
+      <div class="foot">
+        <span>© {new Date().getFullYear()} {site.name}</span>
+        <span>{s.footer}</span>
+      </div>
+    </footer>
+    <script is:inline>
+      document.getElementById('theme').addEventListener('click', () => {
+        const root = document.documentElement;
+        const light = root.dataset.theme !== 'light';
+        if (light) { root.dataset.theme = 'light'; localStorage.setItem('theme', 'light'); }
+        else { delete root.dataset.theme; localStorage.removeItem('theme'); }
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .brand { text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+  .cursor { color: var(--accent); animation: blink 1.2s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+  nav { display: flex; align-items: center; gap: 1.25rem; }
+  nav a { text-decoration: none; color: var(--muted); }
+  nav a:hover, nav a[aria-current='page'] { color: var(--fg); }
+  nav a[aria-current='page']::before { content: '>'; color: var(--accent); margin-right: 0.35em; }
+  #theme {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  #theme:hover { color: var(--accent); border-color: var(--accent); }
+  .moon { display: none; }
+  :global([data-theme='light']) .sun { display: none; }
+  :global([data-theme='light']) .moon { display: block; }
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.75rem;
+  }
+  @media (max-width: 480px) { nav { gap: 0.9rem; } }
+</style>

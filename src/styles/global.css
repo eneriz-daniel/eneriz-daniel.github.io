@@ -1,0 +1,105 @@
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+
+:root {
+  --bg: #0e1013;
+  --bg-soft: #15181d;
+  --fg: #e3e6ea;
+  --muted: #8d949e;
+  --faint: #5b626c;
+  --line: #23272e;
+  --accent: #6aa8ff;
+  --accent-soft: rgb(106 168 255 / 0.12);
+  --todo: #f5b041;
+
+  --sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+  --measure: 46rem;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #fbfbfa;
+  --bg-soft: #f1f2f0;
+  --fg: #1b1e22;
+  --muted: #5d646d;
+  --faint: #9aa0a8;
+  --line: #e2e4e2;
+  --accent: #1d5fd1;
+  --accent-soft: rgb(29 95 209 / 0.09);
+  --todo: #b9770e;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body { margin: 0; }
+
+::selection { background: var(--accent); color: var(--bg); }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--faint);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+strong { font-weight: 600; }
+p { margin: 0 0 1em; }
+h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -0.015em; }
+
+.mono { font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0; }
+.muted { color: var(--muted); }
+
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 1.5rem; }
+
+mark.todo {
+  background: none;
+  color: var(--todo);
+  font-family: var(--mono);
+  font-size: 0.85em;
+  border: 1px dashed var(--todo);
+  border-radius: 3px;
+  padding: 0 0.3em;
+}
+
+/* Section: mono label in a left gutter on wide screens */
+.section {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0 2rem;
+  padding: 2.75rem 0;
+  border-top: 1px solid var(--line);
+}
+.section > .label {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding-top: 0.25rem;
+  text-transform: lowercase;
+}
+.section > .label::before { content: '// '; color: var(--accent); }
+.section > .body > :last-child { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  html { font-size: 16px; }
+  .section { grid-template-columns: 1fr; gap: 0.9rem; padding: 2.25rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

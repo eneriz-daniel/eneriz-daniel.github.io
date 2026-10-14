@@ -1,0 +1,191 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PubItem from './PubItem.astro';
+import portrait from '../assets/portrait.jpg';
+import { t, paths, site, stack, type Lang } from '../i18n/content';
+import { publications } from '../data/publications';
+import { hl } from '../i18n/util';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t[lang];
+const selected = publications.filter((p) => p.selected);
+// Keep the address out of the HTML: reversed + base64, decoded client-side.
+const encodedEmail = btoa([...site.email].reverse().join(''));
+---
+<Base lang={lang} page="home">
+  <section class="hero">
+    <Image src={portrait} alt={site.name} width={176} height={176} class="portrait" loading="eager" />
+    <div>
+      <h1>{site.name}<span class="phd">, PhD</span></h1>
+      <p class="role mono">{s.hero.role} <span class="muted">{s.hero.at}</span> <a href="https://veridas.com">Veridas</a></p>
+    </div>
+    <p class="lead">{s.hero.lead}</p>
+  </section>
+
+  <section class="section">
+    <h2 class="label">{s.sections.now}</h2>
+    <div class="body">
+      {s.now.map((p) => <p set:html={p} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="label">{s.sections.work}</h2>
+    <div class="body">
+      <ul class="cards">
+        {s.work.map((w) => (
+          <li>
+            <h3>{w.title}</h3>
+            <p class="muted">{w.body}</p>
+          </li>
+        ))}
+      </ul>
+      <dl class="stack mono">
+        {stack.map((g) => (
+          <div>
+            <dt>{g.group[lang]}</dt>
+            <dd>{g.items.map((i) => <span>{i}</span>)}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="label">{s.sections.path}</h2>
+    <ol class="body path">
+      {s.path.map((p) => (
+        <li>
+          <span class="when mono" set:html={hl(p.when)} />
+          <div>
+            <div>{p.what}</div>
+            <div class="muted small">{p.detail}</div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2 class="label">{s.sections.research}</h2>
+    <div class="body">
+      <p set:html={s.research.intro} />
+      <h3 class="sub mono muted">{s.research.selected}</h3>
+      <ul class="pubs">
+        {selected.map((pub) => <PubItem pub={pub} lang={lang} codeLabel={s.researchPage.code} />)}
+      </ul>
+      <p class="more mono"><a href={paths[lang].research}>{s.research.all} →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="label">{s.sections.lab}</h2>
+    <div class="body"><p>{s.lab}</p></div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2 class="label">{s.sections.contact}</h2>
+    <div class="body">
+      <p>{s.contact}</p>
+      <noscript><p class="muted small">{s.emailFallback}</p></noscript>
+      <p class="mono links">
+        <a class="email" data-e={encodedEmail} href="#contact">email</a>
+        {site.links.map((l) => <a href={l.href}>{l.label} ↗</a>)}
+      </p>
+    </div>
+  </section>
+</Base>
+
+<script>
+  for (const a of document.querySelectorAll<HTMLAnchorElement>('a[data-e]')) {
+    const addr = [...atob(a.dataset.e!)].reverse().join('');
+    a.href = `mailto:${addr}`;
+    a.textContent = addr;
+  }
+</script>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 3.5rem 0 3rem;
+  }
+  .portrait {
+    width: 88px;
+    height: 88px;
+    border-radius: 10px;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.05);
+    border: 1px solid var(--line);
+    transition: filter 0.3s;
+  }
+  .portrait:hover { filter: none; }
+  h1 { font-size: 2.2rem; line-height: 1.1; }
+  .phd { color: var(--muted); font-weight: 400; }
+  .role { margin: 0.5rem 0 0; color: var(--fg); }
+  .role a { color: var(--accent); text-decoration: none; }
+  .lead {
+    grid-column: 1 / -1;
+    margin: 1rem 0 0;
+    font-size: 1.3rem;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    max-width: 38rem;
+  }
+
+  .cards {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+    display: grid;
+    gap: 1rem;
+  }
+  .cards li {
+    padding-left: 1rem;
+    border-left: 2px solid var(--line);
+  }
+  .cards li:hover { border-left-color: var(--accent); }
+  .cards h3 { font-size: 1rem; }
+  .cards p { margin: 0.15rem 0 0; font-size: 0.95rem; }
+
+  .stack { margin: 0; display: grid; gap: 0.6rem; font-size: 0.78rem; }
+  .stack div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.75rem; }
+  .stack dt { color: var(--faint); padding-top: 0.15rem; }
+  .stack dd { margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .stack span {
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--bg-soft);
+  }
+
+  .path { list-style: none; padding: 0; margin: 0; }
+  .path li {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 1rem;
+    padding: 0.55rem 0;
+  }
+  .when { color: var(--muted); padding-top: 0.15rem; }
+  .small { font-size: 0.88rem; }
+
+  .sub { font-size: 0.75rem; font-weight: 400; margin: 1.75rem 0 0.25rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .pubs { list-style: none; padding: 0; margin: 0; }
+  .more { margin-top: 1.25rem; }
+  .more a { color: var(--accent); text-decoration: none; }
+
+  .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; }
+
+  @media (max-width: 640px) {
+    .hero { padding-top: 2rem; gap: 1.1rem; }
+    .portrait { width: 64px; height: 64px; }
+    h1 { font-size: 1.7rem; }
+    .lead { font-size: 1.15rem; }
+    .path li { grid-template-columns: 1fr; gap: 0.1rem; }
+    .stack div { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+</style>
