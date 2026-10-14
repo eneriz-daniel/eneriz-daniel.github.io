@@ -102,4 +102,10 @@ Las fuentes (Geist y Geist Mono) vienen de los paquetes `@fontsource-variable/*`
 
 ## Despliegue
 
-Pendiente: se publicará en GitHub Pages bajo `eneriz-daniel.com`.
+Se publica en GitHub Pages (`eneriz-daniel.com`) con el workflow `.github/workflows/deploy.yml`. Cada push a `master` compila el sitio y lo despliega; no hay que hacer nada más. También se puede lanzar a mano desde la pestaña *Actions* (*Run workflow*).
+
+El workflow falla, y por tanto no publica, si la dirección de email aparece en claro en el HTML generado.
+
+En *Settings → Pages* del repositorio, la fuente debe ser **GitHub Actions** y el dominio personalizado `eneriz-daniel.com`.
+
+Para trabajar en cambios sin publicarlos, usa otra rama y fusiónala en `master` cuando estén listos.
