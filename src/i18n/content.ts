@@ -69,7 +69,7 @@ const en = {
     code: 'code',
     back: '← back',
   },
-  footer: 'Built with Astro. No tracking.',
+  footer: 'Built with Astro. Cookie-free analytics.',
 };
 
 const es: typeof en = {
@@ -119,7 +119,7 @@ const es: typeof en = {
     code: 'código',
     back: '← volver',
   },
-  footer: 'Hecha con Astro. Sin rastreo.',
+  footer: 'Hecha con Astro. Analítica sin cookies.',
 };
 
 export const t = { en, es };

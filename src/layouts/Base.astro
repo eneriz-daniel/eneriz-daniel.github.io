@@ -26,6 +26,10 @@ const pageTitle = title ? `${title} — ${site.name}` : s.meta.title;
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={s.meta.description} />
+    {import.meta.env.PROD && (
+      // Cookie-free analytics; only in production builds so local previews are not counted.
+      <script is:inline data-goatcounter="https://eneriz-daniel.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    )}
     <script is:inline>
       // Dark by default; only switch to light if the visitor chose it.
       if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light';

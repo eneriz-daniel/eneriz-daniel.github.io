@@ -1,6 +1,6 @@
 # eneriz-daniel.com
 
-Web personal de Daniel Enériz. Sitio estático hecho con [Astro](https://astro.build), bilingüe (inglés en `/`, español en `/es/`), sin dependencias de terceros en tiempo de ejecución: fuentes, imágenes y estilos se sirven desde el propio sitio.
+Web personal de Daniel Enériz. Sitio estático hecho con [Astro](https://astro.build), bilingüe (inglés en `/`, español en `/es/`), con fuentes, imágenes y estilos servidos desde el propio sitio. La única petición a terceros es el script de analítica de GoatCounter.
 
 ## Requisitos
 
@@ -96,6 +96,7 @@ Las fuentes (Geist y Geist Mono) vienen de los paquetes `@fontsource-variable/*`
 ## Detalles a tener en cuenta
 
 - **Email**: la dirección de `site.email` nunca aparece en el HTML generado. Se guarda invertida y en base64, y un pequeño script la reconstruye en el navegador (`Home.astro`). Así se frena a los bots que rastrean direcciones en el HTML. Para comprobarlo tras compilar: `grep -r gmail dist/` no debe devolver nada.
+- **Analítica**: [GoatCounter](https://eneriz-daniel.goatcounter.com), sin cookies. El script está en `Base.astro` y solo se incluye en la compilación de producción, así que `npm run dev` no genera visitas. Las estadísticas se consultan en el panel de GoatCounter.
 - **Tema**: oscuro por defecto. La elección del visitante se guarda en `localStorage` (`theme`).
 - **Idiomas**: las URLs de cada página en cada idioma están en `paths` (`content.ts`). El selector EN/ES de la cabecera enlaza a la misma página en el otro idioma.
 - **Dominio**: `site` en `astro.config.mjs` se usa para las URLs canónicas y las etiquetas `hreflang`. Si cambia el dominio, actualízalo ahí. `public/CNAME` contiene el dominio personalizado que usa GitHub Pages: si cambia, actualízalo también.
